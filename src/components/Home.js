@@ -16,7 +16,7 @@ const Home = () => (
 	    	 <div className='home-card'>
 	         <h1> ⌨️ Welcome to open-source typing platform <span>typerex</span> </h1>
 	         <p className='main-p'>Typing platform for finding out the average typing speed of every user using wpm (words per minute) 💙.</p>
-	         <button className="bubbly-button">START</button>
+	         <a className="bubbly-button" href='/test'>START</a>
 	          <div style={{display:'flex'}}>
 	           <h2><a href=""><FaGithub/></a></h2>
 	           <h2><a href=""><GoRepoForked/></a></h2> 

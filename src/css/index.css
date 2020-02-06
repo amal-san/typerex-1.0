@@ -84,6 +84,7 @@ body {
 
 
 .bubbly-button {
+  text-decoration: none;
   font-weight: bolder;
   display: inline-block;
 /*  font-size: 1em;
@@ -168,4 +169,9 @@ body {
 
 .main-p {
   font-size:1.2em;
+}
+
+@media only screen and (max-width: 668px) {
+  .home-card {display: 'none';}
+  
 }
