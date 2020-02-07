@@ -141,7 +141,7 @@ body {
 }
 
 .clip-1 {
-      height: 200px;
+      height: 100px;
       width: 100%;
       min-width: 100%;
       background-color: #4fb4df;
@@ -172,6 +172,46 @@ body {
 }
 
 @media only screen and (max-width: 668px) {
-  .home-card {display: 'none';}
+  .home-card {height: 555px;}
+  .para-card {width:100%!important;}
   
+}
+.FaGithub {
+  color:black;
+}
+
+.test-container {
+  height: 90vh;
+  background:white;
+  margin:0 auto;
+  
+}
+
+.test-card {
+  padding:1em;
+  background: aqua;
+  height: 60%;
+}
+
+.para-card {
+    height: 80%;
+    box-shadow: 0px 4px 11px 0px #332d2d8a;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    padding-top: 0px;
+    border-radius: 6px;
+    background: white;
+    width:70%;
+}
+
+.test-enter {
+  margin:0 auto;
+  height:15%;
+  background: white;
+  width: 50%
+}
+
+.test-below {
+  height: 42%;
+  background: aqua;
 }
