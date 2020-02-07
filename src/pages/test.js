@@ -8,7 +8,13 @@ const SecondPage = () => (
 	<>
     <title>Typerex </title>
     <Header />
-    <h1> Hello from the second Page </h1>
+     <div className='test-container'> 
+     	<div className='test-card'>
+     		<div className='para-card'></div>
+     		<div className='test-enter'></div>
+     	</div>
+     	<div className='test-below'></div>
+     </div>
     
     </>
   
