@@ -18,7 +18,7 @@ const Home = () => (
 	         <p className='main-p'>Typing platform for finding out the average typing speed of every user using wpm (words per minute) 💙.</p>
 	         <a className="bubbly-button" href='/test'>START</a>
 	          <div style={{display:'flex'}}>
-	           <h2><a href="https://github.com/amal-san/typerex"><FaGithub/></a></h2>
+	           <h2><a className='FaGithub' href="https://github.com/amal-san/typerex"><FaGithub/></a></h2>
 	           <h2><a href=""><GoRepoForked/></a></h2> 
 	           <h2><a href=""><FaReact/></a></h2>
 	          </div>
