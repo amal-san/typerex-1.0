@@ -173,8 +173,8 @@ body {
 }
 
 @media only screen and (max-width: 668px) {
-  .home-card {height: 555px;}
-  .para-card {width:100%!important;}
+  .home-card {height: 570px;}
+  .para-card {width:90%!important;}
   
 }
 .FaGithub {
@@ -185,12 +185,13 @@ body {
   height: 90vh;
   background:white;
   margin:0 auto;
+  background: linear-gradient(to right, #007991, #78ffd6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   
 }
 
 .test-card {
   padding:1em;
-  background: aqua;
   height: 60%;
 }
 
@@ -203,7 +204,10 @@ body {
     border-radius: 6px;
     background: white;
     width:70%;
-}
+    padding:1em;
+    font-size: 100%;
+    letter-spacing: 1px;
+  }
 
 .test-enter {
   margin:0 auto;
@@ -214,5 +218,11 @@ body {
 
 .test-below {
   height: 42%;
-  background: aqua;
+}
+
+#paraEnter {
+  height: 100%;
+  width: 100%;
+  font-size: 1.5em;
+  padding: 0% 3%
 }
