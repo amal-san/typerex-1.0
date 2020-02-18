@@ -29,7 +29,7 @@ class SecondPage extends React.Component {
 
         // Request
         fetch(url).then(res => {
-            if(res.status == 200) {
+            if(res.status === 200) {
                 return res.json()
             }
             else return null;
