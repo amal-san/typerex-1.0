@@ -19,8 +19,8 @@ const Home = () => (
 	         <a className="bubbly-button" href="/typerex/start/">START</a>
 	          <div style={{display:'flex'}}>
 	           <h2><a className='FaGithub' href="https://github.com/amal-san/typerex"><FaGithub/></a></h2>
-	           <h2><a href=""><GoRepoForked/></a></h2> 
-	           <h2><a href=""><FaReact/></a></h2>
+	           <h2><a className='FaFork' href=""><GoRepoForked/></a></h2> 
+	           <h2><a className='FaReact' href=""><FaReact/></a></h2>
 	          </div>
 	    	 </div>
 
