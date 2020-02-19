@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/index.css'
 import { FaGithub , FaReact } from "react-icons/fa";
-import { GoRepoForked , GoKeyboard } from "react-icons/go";
+import { GoRepoForked } from "react-icons/go";
 
 
 
