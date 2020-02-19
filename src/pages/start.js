@@ -2,8 +2,9 @@ import React from "react"
 import '../css/index.css'
 import Header from '../components/Header'
 import { Helmet } from "react-helmet"
-
-
+import { FiLoader } from "react-icons/fi";
+import { IoMdRefresh } from "react-icons/io";
+import axios from 'axios';
 
 
 
@@ -16,9 +17,11 @@ class SecondPage extends React.Component {
             text:[],
             words:[],
             isDataSet:true,
+            loading:false,
         }
 
         this.handleClick = this.handleClick.bind(this);
+        this.handleReload = this.handleReload.bind(this);
    }
    
 
@@ -28,6 +31,9 @@ class SecondPage extends React.Component {
         const url = "https://typeracingapi.rishikc.com/";
 
         // Request
+        this.setState({
+            loading:true,
+        })
         fetch(url).then(res => {
             if(res.status === 200) {
                 return res.json()
@@ -39,7 +45,8 @@ class SecondPage extends React.Component {
                 this.setState({
                     text: data.text,
                     words: data.text.split(' '),
-                    isDataSet: true
+                    isDataSet: true,
+                    loading:false,
                 });
             } else {
                 this.setState({
@@ -50,6 +57,16 @@ class SecondPage extends React.Component {
 
 
 
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+    if (prevState.isDataSet !== this.state.isDataSet) {
+      this.fetchPara();
+       }
+    }
+    
+    handleReload()  {
+        this.fetchPara();
     }
 
    handleClick() {
@@ -88,6 +105,8 @@ class SecondPage extends React.Component {
             }
         }
 
+
+
         return (
 
                 <>
@@ -96,13 +115,12 @@ class SecondPage extends React.Component {
                  <div className='test-container'> 
                     <div className='test-card'>
                         <div className='para-card'>
-                            <p>
-                            {this.state.isDataSet ? rows : 'Not working... Please refresh'}
-                            </p>
+                              {this.state.loading ?   <div style={{display:'flex'}}><span className="blink">Loading...... < FiLoader/></span></div> : rows   }
+                             <div className='reloadbt'><span className='reload' onClick={this.handleReload}> < IoMdRefresh /> </span></div>
                         </div>
                     <div className='test-enter'>
-                    <input id='paraEnter' onChange={this.handleClick} type='text' placeholder='Start typing......'></input>
-                    </div>
+                       <input id='paraEnter' onChange={this.handleClick} type='text' placeholder='Start typing......'></input>
+                      </div>
                     </div>
                     <div className='test-below'></div>
                  </div>                
