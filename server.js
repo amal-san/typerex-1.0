@@ -34,7 +34,8 @@ const dbName = 'typerex';
 const collectionName = 'users'
 const MongoClient = require('mongodb').MongoClient;
 
-
+const username = 'amalsan'
+const password = 'Amal@123'
 
 async function main(){
     /**
@@ -52,7 +53,14 @@ async function main(){
  
         // Make the appropriate DB calls
         // await  listDatabases(client);
-        await CreateDB(client)
+        if (await CheckUser(client,username)){
+
+          await InsertUser(client,username,password)
+        }
+        else {
+          console.log('username already taken!!')
+        }
+
  
     } catch (e) {
         console.error(e);
@@ -71,10 +79,23 @@ async function listDatabases(client){
     databasesList.databases.forEach(db => console.log(` - ${db.name}`));
 };
 
-async function CreateDB(client) {
 
-  
-  await client.db(dbName).collection(collectionName).insertOne('amalsan')
-  // console.log('Created .. !')
+async function CheckUser(client,username) {
+
+    result = await client.db(dbName).collection(collectionName).findOne({ usename: username }
+      );
+ 
+    if (result) {
+        console.log(result);
+        return result
+
+    } else {
+      return false
+    }
+}
+
+async function InsertUser(client,username,password) {
+  await client.db(dbName).collection(collectionName).insertOne({ username: username ,wpm : null ,password: password})
+  console.log('Account created with username %s', username)
 
 }
