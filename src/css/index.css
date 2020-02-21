@@ -190,7 +190,6 @@ body {
   height: 90vh;
   background:wheat;
   margin:0 auto;
-  background: linear-gradient(to right, #007991, #78ffd6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   
 }
