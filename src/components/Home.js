@@ -32,16 +32,17 @@ const Home = () => (
 		         			<label className= 'form-label'>Password</label>
 		         			<input id= 'password' className='form-input' type='password'></input>
 	         			</div>
+	         			<section style={{display:'flex',justifyContent:'space-between'}}>
+				         <a className="bubbly-button" href="/typerex/start/">START</a>
+				         <div style={{display:'flex',justifyContent:'flex-end'}}>
+					         <h2><a className='FaGithub' href="https://github.com/amal-san/typerex"><FaGithub/></a></h2>
+					        <h2><a className='FaFork' href=""><GoRepoForked/></a></h2> 
+					        <h2><a className='FaReact' href=""><FaReact/></a></h2>
+				        </div>
+		           </section>
 	         		</form>
 	         	</section>
-	         	<section style={{display:'flex',justifyContent:'space-between'}}>
-		         <a className="bubbly-button" href="/typerex/start/">START</a>
-		          <div style={{display:'flex'}}>
-		           <h2><a className='FaGithub' href="https://github.com/amal-san/typerex"><FaGithub/></a></h2>
-		           <h2><a className='FaFork' href=""><GoRepoForked/></a></h2> 
-		           <h2><a className='FaReact' href=""><FaReact/></a></h2>
-		       </div>
-		       </section>
+	         	
 	          </div>
 	    	 </div>
 
