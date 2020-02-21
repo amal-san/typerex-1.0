@@ -231,8 +231,11 @@ body {
   height: 100%;
   width: 100%;
   font-size: 1.5em;
-  padding: 0% 3%
+  padding: 0% 3%;
+  outline: none!important;
 }
+
+
 
 .blink {
   animation: blink-animation 1s steps(5, start) infinite;
@@ -241,7 +244,7 @@ body {
   margin:0 auto;
   padding: 2em;
   text-align: center;
-  background: #cacaca94;
+  background: #f9f8f894;
   border-radius: 5px;
 
 }
