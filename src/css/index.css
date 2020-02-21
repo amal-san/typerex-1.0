@@ -26,7 +26,7 @@ body {
   color:white;
 }
 .nav-item {
-	background: #04044a;
+	background: wheat;
 	flex:1;
 	padding:1rem;
 	
@@ -35,6 +35,7 @@ body {
 .nav-item > a {
 	font-size:5vh;
 	font-weight: bold;
+  color:black!important;
 }
 
 .container {
@@ -53,20 +54,21 @@ body {
 .home-content {
 	padding:1em;
 	display: flex;
-  background: linear-gradient(to bottom, #000046, #1cb5e0);
+  /*background: linear-gradient(to bottom, #000046, #1cb5e0);*/
+  background: wheat;
     
 }
 
 
 .home-card {
-  box-shadow: 0px 4px 11px 0px #332d2d8a;
+  /*box-shadow: 0px 4px 11px 0px #332d2d8a;*/
 	margin:0 auto;
 	padding:2em;
 	margin-bottom: 1em;
 	padding-top: 0px;
   border-radius: 6px;
-  background: white;
-
+/*  background: white;
+*/
 
 
 
@@ -75,6 +77,7 @@ body {
 .home-card > p {
 	margin-top:'none';
   font-size:1em;
+  color:black;
 }
 
 .home-card > img {
@@ -92,7 +95,7 @@ body {
   margin-top: 10%;
   -webkit-appearance: none;
   appearance: none;
-  background-color: #03033a;
+  background-color:#3370ca;
   color: #fff;
 /*  font-weight: bold;
   font-size:1.5em;*/
@@ -129,22 +132,16 @@ body {
 }
 .bubbly-button:active {
   transform: scale(0.9);
-  background: #03033ae8;
+  background: #3370ca;
 }
-.bubbly-button.animate:before {
-  display: block;
-  animation: topBubbles ease-in-out 0.75s forwards;
-}
-.bubbly-button.animate:after {
-  display: block;
-  animation: bottomBubbles ease-in-out 0.75s forwards;
-}
+
 
 .clip-1 {
       height: 100px;
       width: 100%;
       min-width: 100%;
-      background-color: #1cb5e0;
+      /*background-color: #1cb5e0;*/
+      background: wheat;
       -webkit-clip-path: ellipse(41% 186px at 36% -26%);
       -moz-clip-path: ellipse(41% 186px at 36% -26%);
       clip-path: ellipse(80% 100px at 66% -26%);
@@ -175,6 +172,8 @@ body {
   .para-card {width:90%!important;}
   .test-container {height:}
   .test-enter {height: auto!important;}
+  .home-content{flex-direction: column;}
+  .home-img{margin:0 auto;}
   
 }
 .FaGithub {
@@ -262,3 +261,45 @@ body {
     justify-content: flex-end;
 }
 
+.login {
+  background: white;
+  border-radius: 5px;
+  padding:2em;
+}
+
+.form {
+    background-color: #fff;
+    box-shadow: 1px 2px 7px rgba(114,182,234,.2);
+    border-radius: 8px;
+    padding:1em;
+}
+.form-div {
+    display: flex;
+    border: 1px solid #caeaf6;
+    padding: 5px;
+    border-radius: 7px;
+    /* padding-right: 2em; */
+    position: relative;
+}
+
+.form-label {
+     color: rgba(39,95,106,.85);
+    position: absolute;
+    top: -.9em;
+    left: calc(.75rem - 2px);
+    background-color: #fff;
+    padding: 0 8px;
+}
+
+.form-input {
+    padding: 11px;
+    padding-right: 5px;
+    border: 0;
+    color: rgba(32,78,87,.9);
+    box-shadow: none;
+    background-color: #fff;
+    margin: 0;
+    flex: 1;
+    border-radius: 7px;
+
+}
