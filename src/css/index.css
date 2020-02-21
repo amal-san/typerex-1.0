@@ -54,7 +54,6 @@ body {
 	padding:1em;
 	display: flex;
   background: linear-gradient(to bottom, #000046, #1cb5e0);
-  height: 80%;
     
 }
 
@@ -173,7 +172,6 @@ body {
 }
 
 @media only screen and (max-width: 668px) {
-  .home-card {height: 570px;}
   .para-card {width:90%!important;}
   .test-container {height:}
   .test-enter {height: auto!important;}
