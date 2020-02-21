@@ -29,7 +29,7 @@ class SecondPage extends React.Component {
    fetchPara()
    {
         // URL
-        const url = "https://typeracingapi.rishikc.com/";
+        const url = "https://typeracingapi.rishikc.com/.netlify/functions/server/text/";
 
         // Request
         this.setState({
@@ -116,7 +116,7 @@ class SecondPage extends React.Component {
                  <div className='test-container'> 
                     <div className='test-card'>
                         <div className='para-card'>
-                              {this.state.loading ?   <Myloader /> : rows   }
+                              {this.state.loading ? <div style={{display:'flex',justifyContent:'center'}}> <Myloader /> </div> : rows }
                              <div className='reloadbt'><span className='reload' onClick={this.handleReload}> < IoMdRefresh /> </span></div>
                         </div>
                     <div className='test-enter'>
