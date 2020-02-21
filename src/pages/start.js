@@ -1,6 +1,7 @@
 import React from "react"
 import '../css/index.css'
 import Header from '../components/Header'
+import Myloader from '../components/Myloader'
 import { Helmet } from "react-helmet"
 import { FiLoader } from "react-icons/fi";
 import { IoMdRefresh } from "react-icons/io";
@@ -115,7 +116,7 @@ class SecondPage extends React.Component {
                  <div className='test-container'> 
                     <div className='test-card'>
                         <div className='para-card'>
-                              {this.state.loading ?   <div style={{display:'flex'}}><span className="blink">Loading...... < FiLoader/></span></div> : rows   }
+                              {this.state.loading ?   <Myloader /> : rows   }
                              <div className='reloadbt'><span className='reload' onClick={this.handleReload}> < IoMdRefresh /> </span></div>
                         </div>
                     <div className='test-enter'>
