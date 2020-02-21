@@ -91,20 +91,20 @@ body {
   font-weight: bolder;
   display: inline-block;
 /*  font-size: 1em;
-*/ padding:1em 2em ;
+*/ padding:.5em 2em ;
   margin-top: 10%;
   -webkit-appearance: none;
   appearance: none;
-  background-color:#3370ca;
+  background-color:#FF9800;
   color: #fff;
 /*  font-weight: bold;
   font-size:1.5em;*/
-  border-radius: 2em;
+  border-radius: auto;
   border: none;
   cursor: pointer;
   position: relative;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0px 1px 11px rgb(4, 4, 74);
+  box-shadow: 0px 1px 11px rgb(245, 222, 179);
 }
 .bubbly-button:focus {
   outline: 0;
@@ -132,7 +132,7 @@ body {
 }
 .bubbly-button:active {
   transform: scale(0.9);
-  background: #3370ca;
+  background: #FF9800;
 }
 
 
@@ -173,7 +173,7 @@ body {
   .test-container {height:}
   .test-enter {height: auto!important;}
   .home-content{flex-direction: column;}
-  .home-img{margin:0 auto;}
+  .home-img{margin:0 auto;width: 90%!important;}
   
 }
 .FaGithub {
@@ -269,8 +269,8 @@ body {
 
 .form {
     background-color: #fff;
-    box-shadow: 1px 2px 7px rgba(114,182,234,.2);
-    border-radius: 8px;
+/*    box-shadow: 1px 2px 7px rgba(114,182,234,.2);
+*/    border-radius: 8px;
     padding:1em;
 }
 .form-div {
