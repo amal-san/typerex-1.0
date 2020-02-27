@@ -3,7 +3,7 @@ import ContentLoader from "react-content-loader"
 
 const MyLoader = () => (
  <ContentLoader 
-    speed={2}
+    speed={3}
     width={1500}
     height={100}
     backgroundColor="#f3f3f3"
