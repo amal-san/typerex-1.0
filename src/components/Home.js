@@ -18,20 +18,7 @@ const Home = () => (
 	         <p className='main-p'>Typing platform for finding out the average typing speed of every user using wpm (words per minute) 💙.</p>
 	         <div className='login'>
 	         	<section>
-	         		<h1>Sign Up </h1>
-	         		<form className='form'>
-	         			<div className= 'form-div'>
-		         			<label className= 'form-label'>Email</label>
-		         			<input id='email' className='form-input' type='emal'></input>
-	         			</div>
-	         			<div className= 'form-div' style={{marginTop:'2em'}}>
-		         			<label className= 'form-label'>Username</label>
-		         			<input id='username' className='form-input'></input>
-	         			</div>
-	         			<div className= 'form-div' style={{marginTop:'2em'}}>
-		         			<label className= 'form-label'>Password</label>
-		         			<input id= 'password' className='form-input' type='password'></input>
-	         			</div>
+	         		<h1 className='startheader'>Let's Start </h1>
 	         			<section style={{display:'flex',justifyContent:'space-between'}}>
 				         <a className="bubbly-button" href="/typerex/start/">START</a>
 				         <div style={{display:'flex',justifyContent:'flex-end'}}>
@@ -40,7 +27,6 @@ const Home = () => (
 					        <h2><a className='FaReact' href=""><FaReact/></a></h2>
 				        </div>
 		           </section>
-	         		</form>
 	         	</section>
 	         	
 	          </div>
@@ -50,7 +36,7 @@ const Home = () => (
 
     	</div>
     	<div className='shapes'>
-    	<div className='clip-1'></div>
+    	<span className='wrap'><div className='clip-1'></div></span>
     	<div className='clip-2'></div>
     	<div className='clip-3'></div>
     	 <div className='clip-4'></div>
