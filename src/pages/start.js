@@ -114,6 +114,7 @@ class SecondPage extends React.Component {
                 <title>Typerex </title>
                 <Header />
                  <div className='test-container'> 
+                  <div></div>
                     <div className='test-card'>
                         <div className='para-card'>
                               {this.state.loading ? <div style={{display:'flex',justifyContent:'center'}}> <Myloader /> </div> : rows }
