@@ -10,7 +10,6 @@ import PageTransition from 'gatsby-plugin-page-transitions';
 
 
 const Home = () => (
-  <PageTransition>
 	<>
      <div className='home' style={{height:'100vh'}}>
     	<div className='home-content'>
@@ -49,7 +48,6 @@ const Home = () => (
     </div>
 
     </>
-  </PageTransition>
 
  )
 
