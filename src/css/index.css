@@ -177,6 +177,7 @@ body {
   .test-enter {height: auto!important;}
   .home-content{flex-direction: column;}
   .home-img{margin:0 auto;width: 90%!important;}
+  .home {background: white;}
   
 }
 .FaGithub {
