@@ -63,7 +63,7 @@ class SecondPage extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-    if (prevState.isDataSet !== this.state.isDataSet) {
+    if (prevState.isDataSet !== this.state.isDataSet)  {
       this.fetchPara();
        }
     }
