@@ -6,6 +6,8 @@ import { Helmet } from "react-helmet"
 import { FiLoader } from "react-icons/fi";
 import { IoMdRefresh } from "react-icons/io";
 import axios from 'axios';
+import PageTransition from 'gatsby-plugin-page-transitions';
+
 
 
 
@@ -109,7 +111,7 @@ class SecondPage extends React.Component {
 
 
         return (
-
+              <PageTransition>
                 <>
                 <title>Typerex </title>
                 <Header />
@@ -127,6 +129,7 @@ class SecondPage extends React.Component {
                     <div className='test-below'></div>
                  </div>                
                  </>
+              </PageTransition>
             )
     }  
 
