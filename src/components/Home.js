@@ -9,7 +9,35 @@ import PageTransition from 'gatsby-plugin-page-transitions';
 
 
 
-const Home = () => (
+class Home extends React.Component {
+
+	constructor(){
+		super()
+	}
+
+	handleClick() {
+		var input = document.getElementById('name').value
+
+		function letterCheck(input) {
+
+			 var letters = /^[A-Za-z]+$/;
+
+			if( input.match(letters)){
+				alert(input)
+			}
+			else {
+				alert('Enter the Name')
+			}
+
+		}
+		letterCheck(input)
+
+		
+		
+	}
+
+	render(){
+		return(
 	<>
      <div className='home' style={{height:'100vh'}}>
     	<div className='home-content'>
@@ -20,8 +48,14 @@ const Home = () => (
 	         <div className='login'>
 	         	<section>
 	         		<h1 className='startheader'>Let's Start </h1>
+			         	<form className='form'>
+			         			<div className= 'form-div'>
+				         			<label className= 'form-label'>Enter your Name</label>
+				         			<input id='name' className='form-input' type='text'></input>
+			         			</div>
+			         	 </form>
 	         			<section style={{display:'flex',justifyContent:'space-between'}}>
-				         <a className="bubbly-button" href="/typerex/start/">START</a>
+				         <a className="bubbly-button" onClick={this.handleClick}>START</a>
 				         <div style={{display:'flex',justifyContent:'flex-end'}}>
 					         <h2><a className='FaGithub' href="https://github.com/amal-san/typerex"><FaGithub/></a></h2>
 					        <h2><a className='FaFork' href=""><GoRepoForked/></a></h2> 
@@ -49,7 +83,9 @@ const Home = () => (
 
     </>
 
- )
+  )
+ }
+}
 
  export default Home
 
