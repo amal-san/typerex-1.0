@@ -30,10 +30,8 @@ app.get('/test', function(req, res) {
 app.get('/db', function(req, res) {
 
     // res.send(dbutils.test().toString());
-    res.send(dbutils.db());
-    console.log('mainljsdalfjklajsdl')
-
-    
+    // dbutils.db().then(data => console.log(data))
+    dbutils.db('listDatabases').then(data => res.json(data))  
 
 });
 
