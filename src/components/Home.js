@@ -4,7 +4,7 @@ import { FaGithub , FaReact } from "react-icons/fa";
 import { GoRepoForked } from "react-icons/go";
 import { Animate }  from 'react-simple-animate';
 import PageTransition from 'gatsby-plugin-page-transitions';
-
+import axios from 'axios'
 
 
 
@@ -31,6 +31,14 @@ class Home extends React.Component {
 
 		}
 		letterCheck(input)
+		axios.get('https://typerex.herokuapp.com/db/')
+		  .then((response) => {
+		    console.log(response.data);
+		    console.log(response.status);
+		    console.log(response.statusText);
+		    console.log(response.headers);
+		    console.log(response.config);
+		  });
 
 		
 		
