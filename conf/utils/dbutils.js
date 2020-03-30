@@ -1,16 +1,46 @@
 module.exports = {
+
   test: function () {
-    return 1
+     return 1
   },
-  db: async function () {
 
 
-    async function listDatabases(client){
+  // Method for retrieving the list of databases
+  listDatabases: async function (client){
 
-	    databasesList = await client.db().admin().listDatabases();
-	    return databasesList.databases[0].name
+  	databasesList = await client.db().admin().listDatabases();
+	return databasesList.databases
     
-    };
+   },
+   
+   // Username check Method
+   checkUsername: async function (client,username) {
+
+	  result = await client.db(dbName).collection(collectionName).findOne({ usename: username });
+	    if (result) {
+
+	        console.log(result);
+	        return result
+
+	    } else {
+	      return false
+	    }
+	},
+
+
+	// Inserting new user method
+	userInsert: async function (client,username,password) {
+
+	  await client.db(dbName).collection(collectionName).insertOne({ username: username ,wpm : null ,password: password})
+
+	  console.log('Account created with username %s', username)
+
+	},
+
+	// Main function
+    db: async function (params) {
+
+  	console.log(this.test())
 
     const dbName = 'typerex';
 	const collectionName = 'users'
@@ -28,11 +58,9 @@ module.exports = {
 	        await client.connect();
 	 
 	        // Make the appropriate DB calls
-
-	        const data = await listDatabases(client)
-	        console.log(' inside main function : ' ,data)
-	        	
-	        return data
+	        var method = params
+	        const data = await this[method](client);     	
+	        return data;
 
 	        
 
