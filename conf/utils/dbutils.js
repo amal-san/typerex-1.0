@@ -14,41 +14,68 @@ module.exports = {
    },
    
    // Username check Method
-   checkUsername: async function (client,username) {
+   addUser: async function (dbName,collectionName,client,username) {
 
-	  result = await client.db(dbName).collection(collectionName).findOne({ usename: username });
+	  result = await client.db(dbName).collection(collectionName).findOne({username:username});
 	    if (result) {
 
-	        console.log(result);
-	        return result
+	        console.log("Add user function true: ",result);
+	      	return ('username_taken')
 
 	    } else {
-	      return false
+	        console.log("Add user function false: ",result);
+	      return this.userInsert(dbName,collectionName,client,username)
+
+	     
 	    }
 	},
 
 
 	// Inserting new user method
-	userInsert: async function (client,username,password) {
+	userInsert: async function (dbName,collectionName,client,username) {
 
-	  await client.db(dbName).collection(collectionName).insertOne({ username: username ,wpm : null ,password: password})
+	  result = await client.db(dbName).collection(collectionName).insertOne({ username: username ,wpm : null})
+	   if (result) {
 
-	  console.log('Account created with username %s', username)
+	        console.log('Account created with username %s', username)
+	        return ('user_created')
+
+
+	    } else {
+	      console.log(result);
+	      return ('user_not_created')
+	     
+	    }
+
+
+	},
+
+	updateUser: async function (dbName,collectionName,client,username,wpm) {
+
+	result = await client.db(dbName).collection(collectionName).updateOne({ username: username},{$set: {wpm:30}},{ upsert: true })
+	   if (result) {
+
+	        console.log('Updated Wpm with username %s', username)
+	        return ('user_updated')
+
+
+	    } else {
+	      console.log(result);
+	      return ('user_not_update')
+	     
+	    }
 
 	},
 
 	// Main function
-    db: async function (params) {
+    db: async function (params,username,wpm) {
 
-  	console.log(this.test())
 
     const dbName = 'typerex';
 	const collectionName = 'users'
 	const MongoClient = require('mongodb').MongoClient;
 
-	const username = 'amalsan'
-	const password = 'Amal@123'
-    
+
 
     const uri = "mongodb+srv://amalsan:pass@clustor0-a3uoq.mongodb.net/test?retryWrites=true&w=majority";
     const client = new MongoClient(uri, { useNewUrlParser: true , useUnifiedTopology: true});
@@ -59,7 +86,7 @@ module.exports = {
 	 
 	        // Make the appropriate DB calls
 	        var method = params
-	        const data = await this[method](client);     	
+	        const data = await this[method](dbName,collectionName,client,username,wpm);     	
 	        return data;
 
 	        
