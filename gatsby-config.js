@@ -2,9 +2,9 @@ module.exports = {
   pathPrefix: "/typerex",
 
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Typerex`,
+    description: `Online typing platform build using MERN Stack`,
+    author: `@amalsan`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
