@@ -36,6 +36,13 @@ app.get('/db', function(req, res) {
 });
 
 
+app.get('/new_user', function(req, res) {
+
+	res.send('New user') 
+
+});
+
+
 
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
