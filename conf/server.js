@@ -23,27 +23,47 @@ app.get('/', function(req, res) {
 
 app.get('/test', function(req, res) {
 
-    res.send('Amal Santhosh');
+    res.send('This is a test url');
 
 });
 
-app.get('/db', function(req, res) {
+app.get('/dbList', function(req, res) {
 
     // res.send(dbutils.test().toString());
     // dbutils.db().then(data => console.log(data))
-    dbutils.db('listDatabases').then(data => res.json(data))  
+    dbutils.db('listDatabases')
+    .then(data => res.json(data))  
+    .catch(e => console.log(e))
+    	
 
 });
 
 
-app.get('/new_user', function(req, res) {
+app.get('/addUser', function(req, res) {
 
-	res.send('New user') 
+	var fullUrl = req.originalUrl.slice(1,-1);
+	 dbutils.db(fullUrl,'amalsan')
+    .then( function (data){ 
+    	res.json(data)  })
+    .catch(e => res.send('db_not_working'))
 
 });
 
+
+
+app.get('/updateUser', function(req, res) {
+
+	var fullUrl = req.originalUrl.slice(1,-1);
+	 dbutils.db(fullUrl,'amalsan',30)
+    .then( function (data){ 
+    	res.json(data)})
+    .catch(e => res.send('db_not_working'))
+
+});
 
 
 app.listen(port, function() {
 	console.log('Our app is running on http://localhost:' + port);
 });
+
+
