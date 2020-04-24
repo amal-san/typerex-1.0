@@ -26,8 +26,6 @@ class SecondPage extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleReload = this.handleReload.bind(this);
    }
-   
-
    fetchPara()
    {
         // URL
@@ -101,6 +99,8 @@ class SecondPage extends React.Component {
 
     render(){
 
+        localStorage.getItem("typerex_username") ? console.log('authenticated'): window.location.href = "http://localhost:8000/";
+
         if(this.state.isDataSet){
             var rows = [];
             for (var i = 0; i < this.state.text.length; i++) {
@@ -122,14 +122,15 @@ class SecondPage extends React.Component {
                               {this.state.loading ? <div style={{display:'flex',justifyContent:'center'}}> <Myloader /> </div> : rows }
                              <div className='reloadbt'><span className='reload' onClick={this.handleReload}> < IoMdRefresh /> </span></div>
                         </div>
-                    <div className='test-enter'>
-                       <input id='paraEnter' onChange={this.handleClick} type='text' placeholder='Start typing......'></input>
+                    <div className='test-enter' style={{display:'flex'}}>
+                      <a id='startbt'> Start </a>
+                      <input id='paraEnter' onChange={this.handleClick} type='text' placeholder='Start typing......'></input>
                       </div>
                     </div>
                     <div className='test-below'></div>
                  </div>                
                  </>
-              </PageTransition>
+              </PageTransition> 
             )
     }  
 
