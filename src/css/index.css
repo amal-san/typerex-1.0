@@ -220,7 +220,6 @@ body {
 .test-enter {
   margin:0 auto;
   height:15%;
-  background: white;
   width: 50%
 }
 
@@ -229,7 +228,6 @@ body {
 }
 
 #paraEnter {
-  height: 100%;
   width: 100%;
   font-size: larger;
   padding: 0% 3%;
@@ -325,4 +323,12 @@ body {
 .startheader {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+#startbt {
+    padding: 3%;
+    background: orangered;
+    border-radius: 1px;
+    color: white;
+    font-weight: bold;
 }
