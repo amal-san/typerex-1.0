@@ -60,13 +60,26 @@ module.exports = {
 		}
 	},
 
+	infoUser: async function(dbName, collectionName, client, username) {
+		result = await client
+			.db(dbName)
+			.collection(collectionName)
+			.findOne({ username: username });
+		if (result) {
+			return result
+		} else {
+			console.log(result);
+			return "no_user";
+		}
+	},
+
 	updateUser: async function(dbName, collectionName, client, username, wpm) {
 		result = await client
 			.db(dbName)
 			.collection(collectionName)
 			.updateOne(
 				{ username: username },
-				{ $set: { wpm: 30 } },
+				{ $set: { wpm:wpm } },
 				{ upsert: true }
 			);
 		if (result) {
