@@ -12,7 +12,6 @@ home-section {
 body {
 	height:90%;
 	margin:0;
- font-family: 'EB Garamond', serif;
 
 
 }
@@ -24,6 +23,8 @@ body {
 	height:10vh;
 	text-align:center;
   color:white;
+  font-family: 'EB Garamond', serif;
+
 }
 .nav-item {
 	background: #f4a99ad6;
@@ -45,6 +46,8 @@ body {
 	margin: 0 auto;
 	display: flex;
 	flex-shrink: 50px;
+  font-family: 'EB Garamond', serif;
+
 }
 
 .home {
@@ -174,6 +177,8 @@ body {
 @media only screen and (max-width: 668px) {
   .para-card {width:90%!important;}
   .test-container {height:}
+  .activity{width:70%!important;}
+  .test-enter{width:70%!important;}
   .test-enter {height: auto!important;}
   .home-content{flex-direction: column;}
   .home-img{margin:0 auto;width: 90%!important;}
@@ -228,17 +233,12 @@ body {
 }
 
 #paraEnter {
-  width: 100%;
-  font-size: larger;
-  padding: 0% 3%;
-  outline: none!important;
-  padding-right: 5px;
-  border: 0;
-  color: rgba(32,78,87,.9);
-  box-shadow: none;
-  background-color: #fff;
-  margin: 0;
-  flex: 1 1;
+    padding: 10px;
+    background: white;
+    margin-top: 4px;
+    border-radius: 3px;
+    flex: 1;
+    border:none;
 }
 
 
@@ -326,9 +326,63 @@ body {
 }
 
 #startbt {
-    padding: 3%;
+    margin:1px;
+    padding: 10px;
     background: orangered;
-    border-radius: 1px;
-    color: white;
-    font-weight: bold;
+    margin-top: 4px;
+    border-radius: 3px;
+    /* border: 2px solid orangered; */
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#wpm {
+      /* margin: 5px; */
+    /* padding-top: 5px; */
+    padding: 10px;
+    margin-top: 4px;
+    background: wheat;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3px;
+    margin:1px;
+}
+
+.activity {
+    display: flex;
+    /* margin: 0 auto; */
+    margin: 0 auto;
+    width: 50%;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top:5px;
+
+}
+
+
+#timer {
+      /* margin: 5px; */
+    /* padding-top: 5px; */
+    padding: 10px;
+    margin-top: 4px;
+    background: wheat;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 3px;
+    margin:1px;
+}
+
+.user-item {
+  background:#f5b6aa;
+    /* flex: 1; */
+  width: 25%
+}
+
+.user-item-main {
+  background:#f5b6aa;
+    /* flex: 1; */
+  width: 25%;
+  color:black;
+
+
 }
