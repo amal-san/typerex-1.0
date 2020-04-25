@@ -7,6 +7,7 @@ import { FiLoader } from "react-icons/fi";
 import { IoMdRefresh } from "react-icons/io";
 import axios from 'axios';
 import PageTransition from 'gatsby-plugin-page-transitions';
+import cogoToast from 'cogo-toast';
 
 
 
@@ -21,9 +22,11 @@ class SecondPage extends React.Component {
             words:[],
             isDataSet:true,
             loading:false,
+            username:'',
+            wpm:'',
         }
-
-        this.handleClick = this.handleClick.bind(this);
+        this.startTimer = this.startTimer.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.handleReload = this.handleReload.bind(this);
    }
    fetchPara()
@@ -67,39 +70,131 @@ class SecondPage extends React.Component {
     }
     
     handleReload()  {
+        document.getElementById('paraEnter').value= "";
         this.fetchPara();
     }
+    startTimer() {
+              
+     document.getElementById('paraEnter').disabled = false;
+     document.getElementById('startbt').style.background = 'green';
+     var self = this;
 
-   handleClick() {
 
-        let value = document.getElementById('paraEnter').value;
+     
 
-        let last = this.state.text.length;
 
-        for(var j=0;j< last;j++){
+     setTimeout(function(){
+        
+        document.getElementById('startbt').style.background = 'orangered';
+        document.getElementById('paraEnter').disabled = true; 
+        var text = document.getElementById('wpm').innerHTML
+        var wpm = text.split(" ")[1]
+        
+        var input = window.localStorage.getItem("typerex_username")
+        axios.post("http://localhost:8080/updateUser/", { input,wpm })
+        .then( (res) => {
+          console.log(res.data)
+          if(res.data === 'user_updated' ) {
+           cogoToast.success(
+              <div>
+                <div><b>Your wpm is { wpm }</b><br></br><i> Click the start button </i></div>
+              </div>,{ hideAfter:6},
+            );
+           self.handleReload();
+           document.getElementById('wpm').innerHTML = "Wpm: "
+         }
+         else {
 
-        function colorText(bgcolor,tcolor,index){ 
-             document.getElementById(index).style.background = bgcolor; 
-             document.getElementById(index).style.color = tcolor
-            }
-        if(value[j] === this.state.text[j]) {
-            colorText('springgreen','black', j)
+          console.warn('error in database')
+
+         }
+        })
+        .catch((e) =>{
+          console.log(e)
+          });
+        axios.post("http://localhost:8080/infoUser/", { username:input })
+        .then( (res) => {
+          console.log(res.data)
+          if(res.data !== 'no_user' ) {
+            document.getElementById('username').innerHTML = res.data.username;
+            document.getElementById('user-wpm').innerHTML = 'Last wpm : ' + res.data.wpm;
+            window.localStorage.setItem('wpm',res.data.wpm)
+            console.log(res.data)
+      
+         }
+         else {
+
+          console.warn('error in database')
+
+         }
+        })
+        .catch((e) =>{
+          console.log(e)
+          });
+      }, 10000);
+
+
+    }
+
+   handleChange() {
+
+
+      let value = document.getElementById("paraEnter").value;
+
+      let last = this.state.text.length;
+
+      var wpm = 0;
+
+      for (var j = 0; j < last; j++) {
+        function colorText(bgcolor, tcolor, index) {
+          document.getElementById(index).style.background = bgcolor;
+          document.getElementById(index).style.color = tcolor;
         }
-        else {
-            colorText('#017188','white', j) 
-            break;
-          }               
+
+        if (value[j] === this.state.text[j]) {
+          
+          if(value[j] === " "){
+            wpm++;
+          }
+          colorText("springgreen", "black", j);
+         
+
+        } else {
+          colorText("#017188", "white", j);
+          break;
+
         }
+      }
+      document.getElementById('wpm').innerHTML = 'Wpm: ' + wpm;
 
    }
+
    componentDidMount() {
     this.fetchPara()
+    console.log(window.localStorage.getItem('typerex_username'))
+    axios.post("http://localhost:8080/infoUser/",{username: window.localStorage.getItem('typerex_username')})
+        .then( (res) => {
+          console.log(res.data)
+          if(res.data !== 'no_user' ) {
+            document.getElementById('username').innerHTML = res.data.username;
+            document.getElementById('user-wpm').innerHTML = 'Last wpm : ' + res.data.wpm;
+            window.localStorage.setItem('wpm',res.data.wpm)
+            console.log(res.data)
+      
+         }
+         else {
+            console.warn('error in database')
+          }
+        })
+        .catch((e) =>{
+          console.log(e)
+          });
 
    }
 
     render(){
 
-        localStorage.getItem("typerex_username") ? console.log('authenticated'): window.location.href = "http://localhost:8000/";
+        window.localStorage.getItem("typerex_username") ? console.log('authenticated'): window.location.href = "http://localhost:8000/";
 
         if(this.state.isDataSet){
             var rows = [];
@@ -116,15 +211,19 @@ class SecondPage extends React.Component {
                 <title>Typerex </title>
                 <Header />
                  <div className='test-container'> 
-                  <div></div>
                     <div className='test-card'>
                         <div className='para-card'>
                               {this.state.loading ? <div style={{display:'flex',justifyContent:'center'}}> <Myloader /> </div> : rows }
                              <div className='reloadbt'><span className='reload' onClick={this.handleReload}> < IoMdRefresh /> </span></div>
+                              <div></div>
                         </div>
                     <div className='test-enter' style={{display:'flex'}}>
-                      <a id='startbt'> Start </a>
-                      <input id='paraEnter' onChange={this.handleClick} type='text' placeholder='Start typing......'></input>
+                      <input disabled id='paraEnter' onChange={this.handleChange} type='text' placeholder='Start typing......'></input>
+                      </div>
+                      <div className='activity'>
+                      <a id='startbt' onClick={this.startTimer}> Start </a>
+                      <p id='timer'>Time: </p>
+                      <p id='wpm'>Wpm: </p>
                       </div>
                     </div>
                     <div className='test-below'></div>
