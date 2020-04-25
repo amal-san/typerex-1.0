@@ -53,8 +53,19 @@ app.post("/addUser", function(req, res) {
 
 app.post("/updateUser", function(req, res) {
 	var fullUrl = req.originalUrl.slice(1, -1);
+	console.log(req.body.wpm)
 	dbutils
-		.db(fullUrl, "amalsan", 30)
+		.db(fullUrl, req.body.input,req.body.wpm)
+		.then(function(data) {
+			res.json(data);
+		})
+		.catch((e) => res.send("db_not_working"));
+});
+
+app.post("/infoUser", function(req, res) {
+	var fullUrl = req.originalUrl.slice(1, -1);
+	dbutils
+		.db(fullUrl, req.body.username)
 		.then(function(data) {
 			res.json(data);
 		})
