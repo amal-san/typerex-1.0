@@ -53,7 +53,6 @@ app.post("/addUser", function(req, res) {
 
 app.post("/updateUser", function(req, res) {
 	var fullUrl = req.originalUrl.slice(1, -1);
-	console.log(req.body.wpm)
 	dbutils
 		.db(fullUrl, req.body.input,req.body.wpm)
 		.then(function(data) {
