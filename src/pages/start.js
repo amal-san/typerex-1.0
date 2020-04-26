@@ -8,6 +8,7 @@ import { IoMdRefresh } from "react-icons/io";
 import axios from 'axios';
 import PageTransition from 'gatsby-plugin-page-transitions';
 import cogoToast from 'cogo-toast';
+import history from '../components/History';
 
 
 
@@ -77,6 +78,8 @@ class SecondPage extends React.Component {
               
      document.getElementById('paraEnter').disabled = false;
      document.getElementById('startbt').style.background = 'green';
+     var start = document.getElementById("startbt");
+     start.className += "disabled";
      var self = this;
 
 
@@ -84,14 +87,16 @@ class SecondPage extends React.Component {
 
 
      setTimeout(function(){
-        
+
         document.getElementById('startbt').style.background = 'orangered';
         document.getElementById('paraEnter').disabled = true; 
         var text = document.getElementById('wpm').innerHTML
         var wpm = text.split(" ")[1]
+        console.log(wpm)
+        console.log(this.window)
         
         var input = window.localStorage.getItem("typerex_username")
-        axios.post("http://localhost:8080/updateUser/", { input,wpm })
+        axios.post("https://typerex.herokuapp.com/updateUser/", { input,wpm })
         .then( (res) => {
           console.log(res.data)
           if(res.data === 'user_updated' ) {
@@ -101,7 +106,12 @@ class SecondPage extends React.Component {
               </div>,{ hideAfter:6},
             );
            self.handleReload();
-           document.getElementById('wpm').innerHTML = "Wpm: "
+           document.getElementById('wpm').innerHTML = 'Wpm: 0';
+           document.getElementById('user-wpm').innerHTML = 'Last wpm : ' + wpm;
+
+           var element = document.getElementById("startbt");
+           element.classList.remove("disabled")
+
          }
          else {
 
@@ -112,9 +122,9 @@ class SecondPage extends React.Component {
         .catch((e) =>{
           console.log(e)
           });
-        axios.post("http://localhost:8080/infoUser/", { username:input })
+        console.log(input)  
+        axios.post("https://typerex.herokuapp.com/infoUser/", { username:input })
         .then( (res) => {
-          console.log(res.data)
           if(res.data !== 'no_user' ) {
             document.getElementById('username').innerHTML = res.data.username;
             document.getElementById('user-wpm').innerHTML = 'Last wpm : ' + res.data.wpm;
@@ -131,7 +141,7 @@ class SecondPage extends React.Component {
         .catch((e) =>{
           console.log(e)
           });
-      }, 10000);
+      }, 6000);
 
 
     }
@@ -172,29 +182,29 @@ class SecondPage extends React.Component {
    componentDidMount() {
     this.fetchPara()
     console.log(window.localStorage.getItem('typerex_username'))
-    axios.post("http://localhost:8080/infoUser/",{username: window.localStorage.getItem('typerex_username')})
+    axios.post("https://typerex.herokuapp.com/infoUser/",{username: window.localStorage.getItem('typerex_username')})
         .then( (res) => {
-          console.log(res.data)
           if(res.data !== 'no_user' ) {
             document.getElementById('username').innerHTML = res.data.username;
             document.getElementById('user-wpm').innerHTML = 'Last wpm : ' + res.data.wpm;
+            document.getElementById('wpm').innerHTML = 'Wpm: 0' ;
             window.localStorage.setItem('wpm',res.data.wpm)
-            console.log(res.data)
       
          }
          else {
             console.warn('error in database')
+            history.push('/typerex/')
+
           }
         })
         .catch((e) =>{
           console.log(e)
+          history.push('/typerex/')
           });
 
    }
 
     render(){
-
-        window.localStorage.getItem("typerex_username") ? console.log('authenticated'): window.location.href = "http://localhost:8000/";
 
         if(this.state.isDataSet){
             var rows = [];
