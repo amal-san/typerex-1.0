@@ -83,6 +83,7 @@ module.exports = {
 				{ upsert: true }
 			);
 		if (result) {
+			console.log(result)
 			console.log("Updated Wpm with username %s", username);
 			return "user_updated";
 		} else {
