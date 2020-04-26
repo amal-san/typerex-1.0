@@ -17,7 +17,7 @@ class IndexPage extends React.Component {
 	}
 	componentDidMount() {
 
-		axios.post("https/typerex.herokuapp.com/infoUser/", { username:window.localStorage.getItem('typerex_username') })
+		axios.post("https://typerex.herokuapp.com/infoUser/", { username:window.localStorage.getItem('typerex_username') })
         .then( (res) => {
           this.setState({shouldload:false})
           if(res.data !== 'no_user' ) {
