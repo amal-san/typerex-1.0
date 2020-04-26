@@ -4,7 +4,7 @@ import { FaGithub , FaReact } from "react-icons/fa";
 import { GoRepoForked } from "react-icons/go";
 import axios from 'axios'
 import cogoToast from 'cogo-toast';
-import history from './History'
+import { navigate } from "@reach/router"
 
 
 
@@ -45,12 +45,12 @@ class Home extends React.Component {
 			} else if (res.data === "login") {
 				localStorage.setItem("typerex_username", input);
 				cogoToast.success("Login successfull");
-				history.push('/typerex/start/');
+				navigate('/typerex/start/');
 
 			} else if (res.data === "user_created") {
 				localStorage.setItem("typerex_username", input);
 				cogoToast.success("Account created");
-				history.push('/typerex/start/');
+				navigate('/typerex/start/');
 			}
 		})
 		.catch((error) => {
