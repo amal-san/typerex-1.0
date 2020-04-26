@@ -37,7 +37,7 @@ class Home extends React.Component {
 		}
 		letterCheck(input) ? 
 		axios
-		.post("http://localhost:8080/addUser/", { input })
+		.post("https://typerex.herokuapp.com/addUser/", { input })
 		.then((res) => {
 			if (res.data === "username_taken") {
 				cogoToast.info("Username is already taken !");
