@@ -103,7 +103,7 @@ class SecondPage extends React.Component {
            cogoToast.success(
               <div>
                 <div><b>Your wpm is { wpm }</b><br></br><i> Click the start button </i></div>
-              </div>,{ hideAfter:6},
+              </div>,{ hideAfter:5},
             );
            self.handleReload();
            document.getElementById('wpm').innerHTML = 'Wpm: 0';
@@ -141,7 +141,7 @@ class SecondPage extends React.Component {
         .catch((e) =>{
           console.log(e)
           });
-      }, 6000);
+      }, 60000);
 
 
     }
