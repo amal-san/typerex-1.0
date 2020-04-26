@@ -1,14 +1,8 @@
 import React from "react"
 import '../css/index.css'
-import PageTransition from 'gatsby-plugin-page-transitions';
 
 
 class Header extends React.Component {
-
-	constructor(){
-		super()
-	
-	}
 
 
 	render() {
@@ -26,8 +20,10 @@ class Header extends React.Component {
 					</a>
 				</div>
 				<div className='user-item-main'>
-					<p style={{marginBottom:'0'}}><b id='username'></b></p>
-					<p id='user-wpm' style={{margin:'0'}}></p>
+					<div className='user-item-sub'>
+						<p style={{marginBottom:'0'}}><b id='username'></b></p>
+						<p id='user-wpm' style={{margin:'0'}}></p>
+					</div>
 				 </div>
 			</div>
 		</nav>)
