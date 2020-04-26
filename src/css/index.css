@@ -12,6 +12,7 @@ home-section {
 body {
 	height:90%;
 	margin:0;
+  font-family: 'EB Garamond', serif;
 
 
 }
@@ -23,7 +24,7 @@ body {
 	height:10vh;
 	text-align:center;
   color:white;
-  font-family: 'EB Garamond', serif;
+  
 
 }
 .nav-item {
@@ -242,6 +243,10 @@ body {
 }
 
 
+#paraEnter:focus {
+  outline-color: orangered;
+}
+
 
 .blink {
   animation: blink-animation 1s steps(5, start) infinite;
@@ -329,11 +334,11 @@ body {
     margin:1px;
     padding: 10px;
     background: orangered;
-    margin-top: 4px;
     border-radius: 3px;
     /* border: 2px solid orangered; */
     padding-right: 15px;
     padding-left: 15px;
+    color:white;
 }
 
 #wpm {
@@ -341,11 +346,22 @@ body {
     /* padding-top: 5px; */
     padding: 10px;
     margin-top: 4px;
-    background: wheat;
+    background: orangered;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 3px;
     margin:1px;
+    color:white;
+}
+
+#wpm:active {
+  background: #ec5923e0;  
+}
+#timer:active {
+  background: #ec5923e0;  
+}
+#startbt:active {
+  background: #ec5923e0;  
 }
 
 .activity {
@@ -363,13 +379,15 @@ body {
 #timer {
       /* margin: 5px; */
     /* padding-top: 5px; */
+
     padding: 10px;
     margin-top: 4px;
-    background: wheat;
+    background: orangered;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 3px;
     margin:1px;
+    color:white;
 }
 
 .user-item {
@@ -379,10 +397,30 @@ body {
 }
 
 .user-item-main {
+  padding-top:5px;
   background:#f5b6aa;
     /* flex: 1; */
   width: 25%;
   color:black;
 
 
+}
+
+.user-item-sub {
+     background: #cca59dba;
+    border-radius: 10px;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 11px;
+
+}
+
+.user-item-sub > p {
+    margin-bottom: 0px;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.disabled {
+  pointer-events: none!important;
 }
