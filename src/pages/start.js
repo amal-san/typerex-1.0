@@ -8,7 +8,7 @@ import { IoMdRefresh } from "react-icons/io";
 import axios from 'axios';
 import PageTransition from 'gatsby-plugin-page-transitions';
 import cogoToast from 'cogo-toast';
-import history from '../components/History';
+import { navigate } from "@reach/router"
 
 
 
@@ -192,14 +192,14 @@ class SecondPage extends React.Component {
       
          }
          else {
-            console.warn('error in database')
-            history.push('/typerex/')
+            console.warn('error in database') 
+            navigate('/typerex/')
 
           }
         })
         .catch((e) =>{
           console.log(e)
-          history.push('/typerex/')
+          navigate('/typerex/')
           });
 
    }

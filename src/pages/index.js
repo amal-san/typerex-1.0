@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import Home from '../components/Home'
 import PageTransition from 'gatsby-plugin-page-transitions';
 import axios from 'axios'
-import history from '../components/History';
+import { navigate } from "@reach/router"
 
 
 
@@ -21,7 +21,7 @@ class IndexPage extends React.Component {
         .then( (res) => {
           this.setState({shouldload:false})
           if(res.data !== 'no_user' ) {
-          	history.push('/typerex/start/');
+          	navigate('/typerex/start/');
 
       
          }
