@@ -2,10 +2,10 @@ import React from 'react'
 import '../css/index.css'
 import { FaGithub , FaReact } from "react-icons/fa";
 import { GoRepoForked } from "react-icons/go";
-import { Animate }  from 'react-simple-animate';
-import PageTransition from 'gatsby-plugin-page-transitions';
 import axios from 'axios'
 import cogoToast from 'cogo-toast';
+import history from './History'
+
 
 
 
@@ -39,22 +39,22 @@ class Home extends React.Component {
 		axios
 		.post("http://localhost:8080/addUser/", { input })
 		.then((res) => {
-			if (res.data == "username_taken") {
+			if (res.data === "username_taken") {
 				cogoToast.info("Username is already taken !");
 
-			} else if (res.data == "login") {
+			} else if (res.data === "login") {
 				localStorage.setItem("typerex_username", input);
 				cogoToast.success("Login successfull");
-				window.location.href = "http://localhost:8000/start/";
+				history.push('/typerex/start/');
 
-			} else if (res.data == "user_created") {
+			} else if (res.data === "user_created") {
 				localStorage.setItem("typerex_username", input);
 				cogoToast.success("Account created");
-				window.location.href = "http://localhost:8000/start/";
+				history.push('/typerex/start/');
 			}
 		})
 		.catch((error) => {
-			console.log(error);
+			cogoToast.error("Can't login !");
 		}): console.log('Fill the fields')
 
 		
@@ -80,7 +80,7 @@ class Home extends React.Component {
 			</h1>
 			<p className="main-p">
 				Typing platform for finding out the average typing speed of
-				every user using wpm (words per minute) 💙.
+				every user using wpm (words per minute) <span role='img'>💙.</span>
 			</p>
 			<div className="login">
 				<section>
