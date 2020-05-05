@@ -14,10 +14,8 @@ module.exports = {
 
 
 	listUsers: async function(dbName,collectionName,client){
-		result = await client
-				.db(dbName)
-				.collection(collectionName)
-				.find({});
+		result = await client.db(dbName).collection(collectionName).find().toArray();
+
 
 		if(result){
 			console.log("Returning results")
