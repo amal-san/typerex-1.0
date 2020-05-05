@@ -114,7 +114,6 @@ const resolvers = {
       Users: async () => (
         await dbutils.db('listUsers')
         .then(data => {
-          console.log(data)
           return data;
         })
         .catch(e => console.log('404 on list of users'))
