@@ -10,6 +10,14 @@ import { useHistory } from "react-router-dom";
 
 export function Start (props) {
 
+	const[ data , setData ] = useState(false)
+
+	const[ text ,setText ] = useState([])
+
+	const[ words ,setWord] = useState([])
+
+	const[loading, setLoading ] = useState(true)
+
 	const history = useHistory();
 
 
@@ -26,6 +34,29 @@ export function Start (props) {
       .catch(e => {
       	history.push('/')
       })
+
+     const url = "https://typeracingapi.rishikc.com/.netlify/functions/server/text/";
+
+        // Request
+        setLoading(true);
+		       
+        fetch(url).then(res => {
+            if(res.status === 200) {
+                return res.json()
+            }
+            else return null;
+        }).then(data => {
+            console.log(data)
+            if(data!==null)  {
+            	setLoading(false)
+            	setData(true)
+            	setWord(data.text.split(''))
+            	setText(data.text)
+            } else {
+                setData(false)
+            }
+        });
+
     
   	},[]);
 	    return(   
