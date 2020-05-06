@@ -1,57 +1,43 @@
 {
-  "name": "Typerex",
-  "private": true,
-  "description": "Online typing platfrom with MERN stack",
+  "name": "typerex",
   "version": "0.1.0",
-  "author": "Amal Santhosh amalsanp@gmail.com",
+  "private": true,
   "dependencies": {
-    "@reach/router": "^1.3.3",
-    "axios": "^0.19.2",
-    "body-parser": "^1.19.0",
+    "@apollo/react-components": "^3.1.5",
+    "@apollo/react-hooks": "^3.1.5",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "apollo-boost": "^0.4.7",
     "cogo-toast": "^4.2.3",
-    "ejs": "^3.0.2",
-    "gatsby": "^2.19.7",
-    "gatsby-image": "^2.2.39",
-    "gatsby-plugin-manifest": "^2.2.39",
-    "gatsby-plugin-offline": "^3.0.32",
-    "gatsby-plugin-page-transitions": "^1.0.8",
-    "gatsby-plugin-react-helmet": "^3.1.22",
-    "gatsby-plugin-sharp": "^2.4.3",
-    "gatsby-source-filesystem": "^2.1.46",
-    "gatsby-transformer-sharp": "^2.3.13",
-    "gh-pages": "^2.2.0",
-    "mongodb": "^3.5.3",
-    "prop-types": "^15.7.2",
-    "rc-tooltip": "^4.0.3",
-    "react": "^16.12.0",
-    "react-content-loader": "^5.0.2",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^3.9.0",
-    "react-simple-animate": "^3.3.6"
+    "graphql": "^15.0.0",
+    "react": "^16.13.1",
+    "react-content-loader": "^5.0.4",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.10.0",
+    "react-loading": "^2.0.3",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1"
   },
-  "devDependencies": {
-    "prettier": "^1.19.1"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

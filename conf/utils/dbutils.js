@@ -17,6 +17,7 @@ module.exports = {
 		result = await client.db(dbName).collection(collectionName).find().toArray();
 
 
+
 		if(result){
 			console.log("Returning results")
 			return result

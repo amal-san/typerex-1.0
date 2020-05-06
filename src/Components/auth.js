@@ -19,6 +19,30 @@ class Auth {
 		this.authenticated = false;
 	}
 
+	async userUpdate(username,wpm) {
+		const result = await client 
+			.mutate({
+				mutation:gql`
+				mutation {
+				  userUpdate(username:"${username}" wpm:"${wpm}"){
+				  	username
+				    wpm
+					}
+				}
+				`
+			})
+			.then(function(result){
+				return result;
+			})
+			.catch(e => console.log(e))
+
+			if(result) {
+				this.authenticated = true;
+			}
+			return result;
+
+	}
+
 	async login(username) {
 		const result = await client
 		  .mutate({
@@ -68,6 +92,9 @@ class Auth {
 		this.authenticated = false;
 		cb()
 	}
+
+
+
 
 	isAuthenticated() {
 		return this.authenticated;

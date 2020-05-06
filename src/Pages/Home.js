@@ -5,6 +5,8 @@ import { FaGithub , FaReact } from "react-icons/fa";
 import { GoRepoForked } from "react-icons/go";
 import { useHistory } from "react-router-dom";
 import ReactLoading from "react-loading";
+import cogoToast from 'cogo-toast';
+
 
 
 
@@ -24,6 +26,11 @@ export function Home(props) {
   			console.log(data.data);
   			 localStorage.setItem('typerex_username',data.data.userAdd.username);
   			 localStorage.setItem('wpm',data.data.userAdd.wpm);
+  			 cogoToast.success(
+	              <div>
+	                <div>Logged in successfully!</div>
+	              </div>,{ hideAfter:3},
+	             );
   			 props.history.push('/start')
   			})
   		.catch(e => console.log(e))

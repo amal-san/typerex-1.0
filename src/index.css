@@ -424,3 +424,11 @@ body {
 .disabled {
   pointer-events: none!important;
 }
+
+
+.loader {
+	margin:0 auto;
+	padding:2%;
+}
+
+	
