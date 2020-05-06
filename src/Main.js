@@ -2,26 +2,29 @@ import React from "react";
 import {
   Route,
   NavLink,
-  BrowserRouter
+  BrowserRouter,
+  Switch
 } from "react-router-dom";
 import Header from './Components/Header';
-import Start from './Pages/Start';
-import Home from './Pages/Home';
+import {Start} from './Pages/Start';
+import {Home} from './Pages/Home';
+import { ProtectedRoute } from './Components/ProtectedRoute'
+
+
  
 function Main() {
   return (
       <BrowserRouter>
-        <div>
+      <Switch>
+        <>
           <Header/>
-          <ul className="header">
-            <li><NavLink to="/start">Start</NavLink></li>
-          </ul>
-          <div className="content">
-            <Route exact path="/" component={Home}/>
-            <Route path="/start/" component={Start}/>
-          </div>
-        </div>
-        </BrowserRouter>
+            <section>
+              <Route exact path="/" component={Home}/>
+              <ProtectedRoute exact path="/start" component={Start}/>
+            </section>
+        </>
+      </Switch>
+      </BrowserRouter>
 
   )
 }
