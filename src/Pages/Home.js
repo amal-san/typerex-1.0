@@ -13,14 +13,6 @@ export function Home(props) {
 
 	const[ isloggedin , setisloggedin] = useState(true)
 
-	const[ data , setData ] = useState(false)
-
-	const[ text ,setText ] = useState([])
-
-	const[ words ,setWord ] = useState([])
-
-	const[loading, setLoading ] = useState(true)
-
 	const history = useHistory();
 
 
@@ -51,35 +43,11 @@ export function Home(props) {
         console.log(e)
       })
 
-      const url = "https://typeracingapi.rishikc.com/.netlify/functions/server/text/";
-
-        // Request
-        setLoading(true);
-		       
-        fetch(url).then(res => {
-            if(res.status === 200) {
-                return res.json()
-            }
-            else return null;
-        }).then(data => {
-            console.log(data)
-            if(data!==null)  {
-            	setLoading(false)
-            	setData(true)
-            	setWord(data.text.split(''))
-            	setText(data.text)
-            } else {
-
-                setData(false)
-            }
-        });
-
-    
+     
     
     },[]);
 
 
-	let loading =  <h1> Loading.... </h1>
 
 
     
