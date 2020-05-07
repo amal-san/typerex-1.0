@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/typerex/static/css/main.60338112.chunk.css",
-    "main.js": "/typerex/static/js/main.eed68013.chunk.js",
-    "main.js.map": "/typerex/static/js/main.eed68013.chunk.js.map",
+    "main.js": "/typerex/static/js/main.13842834.chunk.js",
+    "main.js.map": "/typerex/static/js/main.13842834.chunk.js.map",
     "runtime-main.js": "/typerex/static/js/runtime-main.dbf7c82f.js",
     "runtime-main.js.map": "/typerex/static/js/runtime-main.dbf7c82f.js.map",
-    "static/js/2.e63776af.chunk.js": "/typerex/static/js/2.e63776af.chunk.js",
-    "static/js/2.e63776af.chunk.js.map": "/typerex/static/js/2.e63776af.chunk.js.map",
+    "static/js/2.a36a5426.chunk.js": "/typerex/static/js/2.a36a5426.chunk.js",
+    "static/js/2.a36a5426.chunk.js.map": "/typerex/static/js/2.a36a5426.chunk.js.map",
     "index.html": "/typerex/index.html",
-    "precache-manifest.9a106b94afe3c88b9e1f322f9fdf1901.js": "/typerex/precache-manifest.9a106b94afe3c88b9e1f322f9fdf1901.js",
+    "precache-manifest.85f6a7df298810108e2a05b921eaf677.js": "/typerex/precache-manifest.85f6a7df298810108e2a05b921eaf677.js",
     "service-worker.js": "/typerex/service-worker.js",
     "static/css/main.60338112.chunk.css.map": "/typerex/static/css/main.60338112.chunk.css.map",
-    "static/js/2.e63776af.chunk.js.LICENSE.txt": "/typerex/static/js/2.e63776af.chunk.js.LICENSE.txt"
+    "static/js/2.a36a5426.chunk.js.LICENSE.txt": "/typerex/static/js/2.a36a5426.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dbf7c82f.js",
-    "static/js/2.e63776af.chunk.js",
+    "static/js/2.a36a5426.chunk.js",
     "static/css/main.60338112.chunk.css",
-    "static/js/main.eed68013.chunk.js"
+    "static/js/main.13842834.chunk.js"
   ]
 }
